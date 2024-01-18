@@ -97,3 +97,252 @@ x==========x]
 [2024-01-14 19:00:18,612:INFO:common:created directory at: artifacts]
 [2024-01-14 19:00:49,575:INFO:common:json file saved at: scores.json]
 [2024-01-14 19:00:53,947:INFO:builder_impl:Assets written to: C:\Users\user\AppData\Local\Temp\tmptf420r_5\model\data\model\assets]
+[2024-01-14 20:20:41,067: INFO: stage_04_model_evaluation: *******************]
+[2024-01-14 20:20:41,068: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-01-14 20:20:41,078: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-14 20:20:41,086: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-14 20:20:41,086: INFO: common: created directory at: artifacts]
+[2024-01-14 20:20:46,171: ERROR: stage_04_model_evaluation: CategoricalCrossentropy.__init__() got an unexpected keyword argument 'fn']
+Traceback (most recent call last):
+  File "e:\Kidney Disease Classification\Kidney_Disease_Classification_END_to_END\src\cnnClassifier\pipeline\stage_04_model_evaluation.py", line 30, in <module>
+    obj.main()
+  File "e:\Kidney Disease Classification\Kidney_Disease_Classification_END_to_END\src\cnnClassifier\pipeline\stage_04_model_evaluation.py", line 18, in main
+    evaluation.evaluation()
+  File "e:\kidney disease classification\kidney_disease_classification_end_to_end\src\cnnClassifier\components\model_evaluation_mlflow.py", line 46, in evaluation
+    self.model = self.load_model(self.config.path_of_model)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "e:\kidney disease classification\kidney_disease_classification_end_to_end\src\cnnClassifier\components\model_evaluation_mlflow.py", line 44, in load_model
+    return tf.keras.models.load_model(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Python 311\Lib\site-packages\keras\saving\saving_api.py", line 212, in load_model
+    return legacy_sm_saving_lib.load_model(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "E:\Python 311\Lib\site-packages\keras\losses.py", line 299, in from_config
+    return cls(**config)
+           ^^^^^^^^^^^^^
+TypeError: CategoricalCrossentropy.__init__() got an unexpected keyword argument 'fn'
+[2024-01-14 20:22:13,949: INFO: stage_03_model_training: *******************]
+[2024-01-14 20:22:13,949: INFO: stage_03_model_training: >>>>>> stage Training started <<<<<<]
+[2024-01-14 20:22:13,965: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-14 20:22:13,967: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-14 20:22:13,968: INFO: common: created directory at: artifacts]
+[2024-01-14 20:22:13,968: INFO: common: created directory at: artifacts\training]
+[2024-01-14 20:22:23,802: ERROR: stage_03_model_training: Graph execution error:
+
+Detected at node 'model/block1_conv2/Relu' defined at (most recent call last):
+    File "e:\Kidney Disease Classification\Kidney_Disease_Classification_END_to_END\src\cnnClassifier\pipeline\stage_03_model_training.py", line 30, in <module>
+      obj.main()
+    File "e:\Kidney Disease Classification\Kidney_Disease_Classification_END_to_END\src\cnnClassifier\pipeline\stage_03_model_training.py", line 21, in main
+      training.train()
+    File "e:\kidney disease classification\kidney_disease_classification_end_to_end\src\cnnClassifier\components\model_training.py", line 77, in train
+      self.model.fit(
+    File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\engine\training.py", line 1685, in fit
+      tmp_logs = self.train_function(iterator)
+    File "E:\Python 311\Lib\site-packages\keras\engine\training.py", line 1284, in train_function
+      return step_function(self, iterator)
+    File "E:\Python 311\Lib\site-packages\keras\engine\training.py", line 1268, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "E:\Python 311\Lib\site-packages\keras\engine\training.py", line 1249, in run_step
+      outputs = model.train_step(data)
+    File "E:\Python 311\Lib\site-packages\keras\engine\training.py", line 1050, in train_step
+      y_pred = self(x, training=True)
+    File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\engine\training.py", line 558, in __call__
+      return super().__call__(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\engine\base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\engine\functional.py", line 512, in call
+      return self._run_internal_graph(inputs, training=training, mask=mask)
+    File "E:\Python 311\Lib\site-packages\keras\engine\functional.py", line 669, in _run_internal_graph
+      outputs = node.layer(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\engine\base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\layers\convolutional\base_conv.py", line 321, in call
+      return self.activation(outputs)
+    File "E:\Python 311\Lib\site-packages\keras\activations.py", line 317, in relu
+      return backend.relu(
+    File "E:\Python 311\Lib\site-packages\keras\backend.py", line 5396, in relu
+      x = tf.nn.relu(x)
+Node: 'model/block1_conv2/Relu'
+OOM when allocating tensor with shape[16,224,224,64] and type float on /job:localhost/replica:0/task:0/device:CPU:0 by allocator cpu
+	 [[{{node model/block1_conv2/Relu}}]]
+Hint: If you want to see a list of allocated tensors when OOM happens, add report_tensor_allocations_upon_oom to RunOptions for current allocation info. This isn't available when running in Eager mode.
+ [Op:__inference_train_function_881]]
+Traceback (most recent call last):
+  File "e:\Kidney Disease Classification\Kidney_Disease_Classification_END_to_END\src\cnnClassifier\pipeline\stage_03_model_training.py", line 30, in <module>
+    obj.main()
+  File "e:\Kidney Disease Classification\Kidney_Disease_Classification_END_to_END\src\cnnClassifier\pipeline\stage_03_model_training.py", line 21, in main
+    training.train()
+  File "e:\kidney disease classification\kidney_disease_classification_end_to_end\src\cnnClassifier\components\model_training.py", line 77, in train
+    self.model.fit(
+  File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "E:\Python 311\Lib\site-packages\tensorflow\python\eager\execute.py", line 58, in quick_execute
+    except TypeError as e:
+tensorflow.python.framework.errors_impl.ResourceExhaustedError: Graph execution error:
+
+Detected at node 'model/block1_conv2/Relu' defined at (most recent call last):
+    File "e:\Kidney Disease Classification\Kidney_Disease_Classification_END_to_END\src\cnnClassifier\pipeline\stage_03_model_training.py", line 30, in <module>
+      obj.main()
+    File "e:\Kidney Disease Classification\Kidney_Disease_Classification_END_to_END\src\cnnClassifier\pipeline\stage_03_model_training.py", line 21, in main
+      training.train()
+    File "e:\kidney disease classification\kidney_disease_classification_end_to_end\src\cnnClassifier\components\model_training.py", line 77, in train
+      self.model.fit(
+    File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\engine\training.py", line 1685, in fit
+      tmp_logs = self.train_function(iterator)
+    File "E:\Python 311\Lib\site-packages\keras\engine\training.py", line 1284, in train_function
+      return step_function(self, iterator)
+    File "E:\Python 311\Lib\site-packages\keras\engine\training.py", line 1268, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "E:\Python 311\Lib\site-packages\keras\engine\training.py", line 1249, in run_step
+      outputs = model.train_step(data)
+    File "E:\Python 311\Lib\site-packages\keras\engine\training.py", line 1050, in train_step
+      y_pred = self(x, training=True)
+    File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\engine\training.py", line 558, in __call__
+      return super().__call__(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\engine\base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\engine\functional.py", line 512, in call
+      return self._run_internal_graph(inputs, training=training, mask=mask)
+    File "E:\Python 311\Lib\site-packages\keras\engine\functional.py", line 669, in _run_internal_graph
+      outputs = node.layer(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\engine\base_layer.py", line 1145, in __call__
+      outputs = call_fn(inputs, *args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 96, in error_handler
+      return fn(*args, **kwargs)
+    File "E:\Python 311\Lib\site-packages\keras\layers\convolutional\base_conv.py", line 321, in call
+      return self.activation(outputs)
+    File "E:\Python 311\Lib\site-packages\keras\activations.py", line 317, in relu
+      return backend.relu(
+    File "E:\Python 311\Lib\site-packages\keras\backend.py", line 5396, in relu
+      x = tf.nn.relu(x)
+Node: 'model/block1_conv2/Relu'
+OOM when allocating tensor with shape[16,224,224,64] and type float on /job:localhost/replica:0/task:0/device:CPU:0 by allocator cpu
+	 [[{{node model/block1_conv2/Relu}}]]
+Hint: If you want to see a list of allocated tensors when OOM happens, add report_tensor_allocations_upon_oom to RunOptions for current allocation info. This isn't available when running in Eager mode.
+ [Op:__inference_train_function_881]
+[2024-01-17 11:23:26,044: INFO: stage_03_model_training: *******************]
+[2024-01-17 11:23:26,044: INFO: stage_03_model_training: >>>>>> stage Training started <<<<<<]
+[2024-01-17 11:23:26,052: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-17 11:23:26,061: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-17 11:23:26,082: INFO: common: created directory at: artifacts]
+[2024-01-17 11:23:26,083: INFO: common: created directory at: artifacts\training]
+[2024-01-17 11:23:26,167: ERROR: stage_03_model_training: No file or directory found at artifacts\prepare_base_model\base_model_updated.h5]
+Traceback (most recent call last):
+  File "e:\Kidney Disease Classification\Kidney_Disease_Classification_END_to_END\src\cnnClassifier\pipeline\stage_03_model_training.py", line 30, in <module>
+    obj.main()
+  File "e:\Kidney Disease Classification\Kidney_Disease_Classification_END_to_END\src\cnnClassifier\pipeline\stage_03_model_training.py", line 19, in main
+    training.get_base_model()
+  File "e:\kidney disease classification\kidney_disease_classification_end_to_end\src\cnnClassifier\components\model_training.py", line 16, in get_base_model
+    self.model = tf.keras.models.load_model(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Python 311\Lib\site-packages\keras\saving\saving_api.py", line 212, in load_model
+    return legacy_sm_saving_lib.load_model(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Python 311\Lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "E:\Python 311\Lib\site-packages\keras\saving\legacy\save.py", line 230, in load_model
+    raise IOError(
+OSError: No file or directory found at artifacts\prepare_base_model\base_model_updated.h5
+[2024-01-17 11:25:54,048: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-01-17 11:25:54,054: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-17 11:25:54,055: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-17 11:25:54,055: INFO: common: created directory at: artifacts]
+[2024-01-17 11:25:54,055: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-01-17 11:25:54,055: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-17 11:25:56,067: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-17 11:25:56,067: ERROR: main: [Errno 2] No such file or directory: 'artifacts/data_ingestion/data.zip']
+Traceback (most recent call last):
+  File "e:\Kidney Disease Classification\Kidney_Disease_Classification_END_to_END\main.py", line 14, in <module>
+    data_ingestion.main()
+  File "e:\kidney disease classification\kidney_disease_classification_end_to_end\src\cnnClassifier\pipeline\stage_01_data_ingestion.py", line 16, in main
+    data_ingestion.extract_zip_file()
+  File "e:\kidney disease classification\kidney_disease_classification_end_to_end\src\cnnClassifier\components\data_ingestion.py", line 42, in extract_zip_file
+    with zipfile.ZipFile(self.config.local_data_file, 'r') as zip_ref:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Python 311\Lib\zipfile.py", line 1281, in __init__
+    self.fp = io.open(file, filemode)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/data_ingestion/data.zip'
+[2024-01-17 11:27:09,948: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-01-17 11:27:09,950: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-17 11:27:09,952: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-17 11:27:09,953: INFO: common: created directory at: artifacts]
+[2024-01-17 11:27:09,953: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-01-17 11:27:09,954: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-17 11:27:11,720: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-17 11:27:11,720: ERROR: main: [Errno 2] No such file or directory: 'artifacts/data_ingestion/data.zip']
+Traceback (most recent call last):
+  File "e:\Kidney Disease Classification\Kidney_Disease_Classification_END_to_END\main.py", line 14, in <module>
+    data_ingestion.main()
+  File "e:\kidney disease classification\kidney_disease_classification_end_to_end\src\cnnClassifier\pipeline\stage_01_data_ingestion.py", line 16, in main
+    data_ingestion.extract_zip_file()
+  File "e:\kidney disease classification\kidney_disease_classification_end_to_end\src\cnnClassifier\components\data_ingestion.py", line 42, in extract_zip_file
+    with zipfile.ZipFile(self.config.local_data_file, 'r') as zip_ref:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Python 311\Lib\zipfile.py", line 1281, in __init__
+    self.fp = io.open(file, filemode)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/data_ingestion/data.zip'
+[2024-01-17 11:29:04,930: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-01-17 11:29:04,936: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-17 11:29:04,939: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-17 11:29:04,939: INFO: common: created directory at: artifacts]
+[2024-01-17 11:29:04,940: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-01-17 11:29:04,941: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-17 11:29:06,687: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-01-17 11:29:11,546: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-01-17 11:29:11,546: INFO: main: *******************]
+[2024-01-17 11:29:11,546: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-01-17 11:29:11,552: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-17 11:29:11,554: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-17 11:29:11,555: INFO: common: created directory at: artifacts]
+[2024-01-17 11:29:11,555: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-01-17 11:29:14,511: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-01-17 11:29:19,650: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-01-17 11:29:19,650: INFO: main: *******************]
+[2024-01-17 11:29:19,650: INFO: main: >>>>>> stage Training started <<<<<<]
+[2024-01-17 11:29:19,665: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-17 11:29:19,667: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-17 11:29:19,667: INFO: common: created directory at: artifacts]
+[2024-01-17 11:29:19,668: INFO: common: created directory at: artifacts\training]
+[2024-01-17 13:15:31,107: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2024-01-17 13:15:31,109: INFO: main: *******************]
+[2024-01-17 13:15:31,109: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2024-01-17 13:15:31,116: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2024-01-17 13:15:31,118: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-01-17 13:15:31,119: INFO: common: created directory at: artifacts]
+[2024-01-17 13:16:06,530: INFO: common: json file saved at: scores.json]
+[2024-01-17 13:16:06,535: INFO: common: json file saved at: scores.json]
+[2024-01-17 13:16:06,536: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
